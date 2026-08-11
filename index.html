@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anaya Ventures — Websites & Marketing Systems for Contractors</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Work+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:         #0b0f11;
+    --bg-alt:     #12181b;
+    --card:       #161d20;
+    --border:     rgba(255,255,255,0.10);
+    --text:       #eef3f2;
+    --text-soft:  #8fa0a2;
+    --accent:     #2dd4bf;
+    --accent-deep:#1f9e8f;
+    --accent-pale:rgba(45,212,191,0.14);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Work Sans', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .display { font-family: 'Sora', sans-serif; }
+  .mono { font-family: 'IBM Plex Mono', monospace; }
+
+  a { color: inherit; }
+
+  /* ─── NAV ─── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 18px 32px;
+    background: rgba(11,15,17,0.88);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: 'Sora', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    text-decoration: none;
+    display: flex; align-items: center; gap: 8px;
+  }
+
+  .nav-logo img { height: 28px; display: block; }
+  .nav-logo .accent { color: var(--accent); }
+
+  .nav-links {
+    display: flex; align-items: center; gap: 30px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.88rem; font-weight: 500;
+    text-decoration: none; color: var(--text-soft);
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover, .nav-links a.active { color: var(--text); }
+  .nav-links a.active { color: var(--accent); }
+
+  .nav-cta {
+    background: var(--accent);
+    color: var(--bg);
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.2px;
+    padding: 11px 22px;
+    border-radius: 3px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .nav-cta:hover { background: var(--accent-deep); transform: translateY(-1px); }
+
+  .nav-toggle { display: none; }
+
+  /* ─── HERO ─── */
+  .hero {
+    position: relative;
+    padding: 120px 32px 100px;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .hero-glow {
+    position: absolute;
+    top: -200px; left: 50%; transform: translateX(-50%);
+    width: 900px; height: 500px;
+    background: radial-gradient(ellipse, var(--accent-pale) 0%, transparent 70%);
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .hero-content { position: relative; z-index: 2; max-width: 780px; margin: 0 auto; }
+
+  .hero-pill {
+    display: inline-block;
+    background: var(--accent-pale);
+    color: var(--accent);
+    font-size: 0.72rem; font-weight: 600;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 8px 18px; border-radius: 999px;
+    margin-bottom: 28px;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.4rem, 5.5vw, 3.6rem);
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -0.5px;
+    margin-bottom: 22px;
+  }
+
+  .hero h1 em { color: var(--accent); font-style: normal; }
+
+  .hero-sub {
+    font-size: 1.08rem; font-weight: 300;
+    color: var(--text-soft);
+    max-width: 560px; margin: 0 auto 40px;
+    line-height: 1.8;
+  }
+
+  .hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 64px; }
+
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--accent); color: var(--bg);
+    font-weight: 700; font-size: 0.95rem;
+    padding: 16px 30px; border-radius: 3px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .btn-primary:hover { background: var(--accent-deep); transform: translateY(-2px); }
+
+  .btn-secondary {
+    display: inline-flex; align-items: center;
+    background: transparent; color: var(--text);
+    font-weight: 600; font-size: 0.95rem;
+    padding: 16px 30px; border-radius: 3px;
+    text-decoration: none; border: 1px solid var(--border);
+    transition: border-color 0.2s, transform 0.15s;
+  }
+
+  .btn-secondary:hover { border-color: var(--accent); transform: translateY(-2px); }
+
+  .trust-row {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 14px;
+  }
+
+  .trust-chip {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 0.82rem; color: var(--text-soft);
+    border: 1px solid var(--border);
+    padding: 10px 18px; border-radius: 999px;
+  }
+
+  .trust-chip .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+
+  /* ─── SHARED ─── */
+  .section { padding: 96px 32px; max-width: 1140px; margin: 0 auto; }
+
+  .eyebrow {
+    display: block; text-align: center;
+    font-size: 0.75rem; font-weight: 600;
+    letter-spacing: 2.5px; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 14px;
+  }
+
+  .section-h {
+    text-align: center;
+    font-size: clamp(1.9rem, 4vw, 2.6rem);
+    font-weight: 700; letter-spacing: -0.5px;
+    margin-bottom: 16px;
+  }
+
+  .section-p {
+    text-align: center; color: var(--text-soft);
+    max-width: 540px; margin: 0 auto 60px;
+    font-size: 1rem; font-weight: 300; line-height: 1.8;
+  }
+
+  .alt-band { background: var(--bg-alt); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+
+  /* ─── WHAT WE DO ─── */
+  .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+
+  .service-card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 6px;
+    padding: 28px 24px;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .service-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+
+  .service-icon {
+    width: 42px; height: 42px; border-radius: 8px;
+    background: var(--accent-pale); color: var(--accent);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.15rem; margin-bottom: 18px;
+  }
+
+  .service-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 8px; }
+  .service-card p { font-size: 0.85rem; font-weight: 300; color: var(--text-soft); line-height: 1.7; }
+
+  /* ─── TRADES STRIP ─── */
+  .trades-strip { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+
+  .trade-chip {
+    font-size: 0.85rem; font-weight: 500;
+    padding: 10px 20px; border: 1px solid var(--border); border-radius: 999px;
+    background: var(--card); color: var(--text-soft);
+  }
+
+  .trades-more {
+    display: block; text-align: center; margin-top: 30px;
+    color: var(--accent); font-size: 0.9rem; font-weight: 600; text-decoration: none;
+  }
+
+  /* ─── VALUES ─── */
+  .values-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+
+  .value-card { text-align: center; padding: 10px; }
+
+  .value-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem; color: var(--accent);
+    display: block; margin-bottom: 14px;
+  }
+
+  .value-card h4 { font-size: 1rem; font-weight: 600; margin-bottom: 10px; }
+  .value-card p { font-size: 0.85rem; font-weight: 300; color: var(--text-soft); line-height: 1.7; }
+
+  /* ─── PRICING PREVIEW ─── */
+  .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+
+  .price-card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 8px;
+    padding: 32px 26px; position: relative;
+  }
+
+  .price-card.featured { border-color: var(--accent); }
+
+  .price-badge {
+    position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+    background: var(--accent); color: var(--bg);
+    font-size: 0.68rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+    padding: 5px 14px; border-radius: 999px;
+  }
+
+  .price-name { font-size: 1.05rem; font-weight: 600; margin-bottom: 6px; }
+  .price-amt { font-family: 'IBM Plex Mono', monospace; font-size: 1.9rem; font-weight: 600; color: var(--accent); margin-bottom: 4px; }
+  .price-amt span { font-family: 'Work Sans', sans-serif; font-size: 0.85rem; font-weight: 400; color: var(--text-soft); }
+  .price-tagline { font-size: 0.82rem; color: var(--text-soft); margin-bottom: 22px; }
+
+  .price-cta {
+    display: block; text-align: center;
+    padding: 12px; border-radius: 4px; margin-top: 8px;
+    text-decoration: none; font-weight: 600; font-size: 0.88rem;
+    border: 1px solid var(--border); color: var(--text);
+    transition: border-color 0.2s;
+  }
+
+  .price-card.featured .price-cta { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+  .price-cta:hover { border-color: var(--accent); }
+
+  .pricing-link { display: block; text-align: center; margin-top: 40px; color: var(--accent); text-decoration: none; font-weight: 600; font-size: 0.9rem; }
+
+  /* ─── PORTFOLIO PREVIEW ─── */
+  .work-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+
+  .work-card {
+    border-radius: 6px; overflow: hidden; border: 1px solid var(--border);
+    background: var(--card);
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .work-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+
+  .work-card img { width: 100%; aspect-ratio: 16/10; object-fit: cover; object-position: top; display: block; }
+  .work-card-label { padding: 16px 18px; font-size: 0.88rem; font-weight: 600; }
+
+  /* ─── CTA BAND ─── */
+  .cta-band { text-align: center; padding: 100px 32px; }
+  .cta-band h2 { font-size: clamp(2rem, 5vw, 2.7rem); font-weight: 700; margin-bottom: 14px; }
+  .cta-band h2 em { color: var(--accent); font-style: normal; }
+  .cta-band > p { color: var(--text-soft); font-weight: 300; margin-bottom: 40px; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 50px 32px 30px;
+  }
+
+  .footer-inner {
+    max-width: 1140px; margin: 0 auto;
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 30px;
+  }
+
+  .footer-brand .nav-logo { margin-bottom: 10px; }
+  .footer-brand p { font-size: 0.82rem; color: var(--text-soft); max-width: 260px; line-height: 1.7; }
+
+  .footer-links { display: flex; gap: 60px; flex-wrap: wrap; }
+  .footer-col h5 { font-size: 0.72rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-soft); margin-bottom: 14px; }
+  .footer-col a { display: block; font-size: 0.85rem; color: var(--text); text-decoration: none; margin-bottom: 10px; }
+  .footer-col a:hover { color: var(--accent); }
+
+  .footer-bottom {
+    max-width: 1140px; margin: 40px auto 0;
+    padding-top: 24px; border-top: 1px solid var(--border);
+    font-size: 0.78rem; color: var(--text-soft);
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .values-grid { grid-template-columns: repeat(2, 1fr); }
+    .pricing-grid { grid-template-columns: 1fr; max-width: 380px; margin: 0 auto; }
+    .work-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 640px) {
+    nav { padding: 14px 18px; }
+    .hero { padding: 90px 20px 70px; }
+    .section { padding: 64px 20px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .values-grid { grid-template-columns: 1fr; }
+    .cta-band { padding: 70px 20px; }
+    .footer-inner { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">ANAYA <span class="accent">VENTURES</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="our-work.html">Our Work</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="trades-we-serve.html">Trades We Serve</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Book a Call</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="hero-pill">Websites &amp; Marketing Systems for Contractors</div>
+    <h1>Your Next Client Is Searching <em>Right Now.</em></h1>
+    <p class="hero-sub">We build websites and marketing systems for contractors and trades — designed to turn visitors into booked jobs, not just page views.</p>
+    <div class="hero-btns">
+      <a href="contact.html" class="btn-primary">Book a Call</a>
+      <a href="our-work.html" class="btn-secondary">See Our Work</a>
+    </div>
+    <div class="trust-row">
+      <div class="trust-chip"><span class="dot"></span>Built for Contractors &amp; Trades</div>
+      <div class="trust-chip"><span class="dot"></span>Website + Marketing, One Partner</div>
+      <div class="trust-chip"><span class="dot"></span>Direct Line to the Person Doing the Work</div>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT WE DO -->
+<section class="section" id="services">
+  <span class="eyebrow">What We Do</span>
+  <h2 class="section-h">Everything Your Business Needs Online</h2>
+  <p class="section-p">One partner for the website, the marketing, and the follow-up — instead of juggling three different vendors.</p>
+
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">◆</div>
+      <h3>Website Design</h3>
+      <p>A custom site built to convert visitors into calls and booked jobs, not just look good.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">↗</div>
+      <h3>Marketing Systems</h3>
+      <p>Lead capture, follow-up, and review requests running automatically in the background.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">★</div>
+      <h3>Reputation Management</h3>
+      <p>We help you collect and respond to reviews so new customers trust you before they even call.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">⚡</div>
+      <h3>Lead Follow-Up</h3>
+      <p>Missed calls get an automatic text back, so a slow moment never costs you a job.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TRADES STRIP -->
+<div class="alt-band">
+  <section class="section">
+    <span class="eyebrow">Who We Work With</span>
+    <h2 class="section-h">Built for Contractors &amp; Trades</h2>
+    <p class="section-p">If your business runs on booked jobs, we've built for someone like you.</p>
+
+    <div class="trades-strip">
+      <span class="trade-chip">General Contractors</span>
+      <span class="trade-chip">Plumbing</span>
+      <span class="trade-chip">Electrician</span>
+      <span class="trade-chip">HVAC</span>
+      <span class="trade-chip">Roofing</span>
+      <span class="trade-chip">Remodeling</span>
+      <span class="trade-chip">Landscapers</span>
+      <span class="trade-chip">Painters</span>
+    </div>
+    <a href="trades-we-serve.html" class="trades-more">See All Trades We Serve →</a>
+  </section>
+</div>
+
+<!-- VALUES -->
+<section class="section">
+  <span class="eyebrow">How We Work</span>
+  <h2 class="section-h">Partners, Not Vendors</h2>
+  <p class="section-p">Our business only works when yours does.</p>
+
+  <div class="values-grid">
+    <div class="value-card">
+      <span class="value-num mono">01</span>
+      <h4>Transparent</h4>
+      <p>Straightforward pricing and real answers — no jargon, no runaround.</p>
+    </div>
+    <div class="value-card">
+      <span class="value-num mono">02</span>
+      <h4>Integrity</h4>
+      <p>We do what we say we'll do, on the timeline we said we'd do it.</p>
+    </div>
+    <div class="value-card">
+      <span class="value-num mono">03</span>
+      <h4>Partnership</h4>
+      <p>You're not a client on a list. We're invested in your business growing.</p>
+    </div>
+    <div class="value-card">
+      <span class="value-num mono">04</span>
+      <h4>Adaptive</h4>
+      <p>Every trade is different — we build around how your business actually runs.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING PREVIEW -->
+<div class="alt-band">
+  <section class="section">
+    <span class="eyebrow">Investment</span>
+    <h2 class="section-h">Straightforward Monthly Pricing</h2>
+    <p class="section-p">No setup games, no long proposals — pick the system that fits where your business is right now.</p>
+
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="price-name">Essentials</div>
+        <div class="price-amt">$197<span>/mo</span></div>
+        <div class="price-tagline">A real website and the basics done right.</div>
+        <a href="pricing.html" class="price-cta">See What's Included</a>
+      </div>
+      <div class="price-card featured">
+        <span class="price-badge">Most Popular</span>
+        <div class="price-name">Professional</div>
+        <div class="price-amt">$297<span>/mo</span></div>
+        <div class="price-tagline">Website + follow-up + reputation, running on autopilot.</div>
+        <a href="pricing.html" class="price-cta">See What's Included</a>
+      </div>
+      <div class="price-card">
+        <div class="price-name">Premium</div>
+        <div class="price-amt">$497<span>/mo</span></div>
+        <div class="price-tagline">Full system, built to be found and booked.</div>
+        <a href="pricing.html" class="price-cta">See What's Included</a>
+      </div>
+    </div>
+    <a href="pricing.html" class="pricing-link">Compare All Plans in Detail →</a>
+  </section>
+</div>
+
+<!-- PORTFOLIO PREVIEW -->
+<section class="section">
+  <span class="eyebrow">Recent Work</span>
+  <h2 class="section-h">Every Website Built From the Ground Up</h2>
+  <p class="section-p">No templates. Every project designed around the business it's actually for.</p>
+
+  <div class="work-grid">
+    <a href="our-work.html" class="work-card">
+      <img src="images/joels-photography.png" alt="Joel's Photography website">
+      <div class="work-card-label">Joel's Photography — Portfolio &amp; Events</div>
+    </a>
+    <a href="our-work.html" class="work-card">
+      <img src="images/carrara-stoneworks.png" alt="Carrara Stoneworks website">
+      <div class="work-card-label">Carrara Stoneworks — Stone &amp; Countertop Fabrication</div>
+    </a>
+    <a href="our-work.html" class="work-card">
+      <img src="images/anaya-plumbers.png" alt="Anaya Plumbers website">
+      <div class="work-card-label">Anaya Plumbers — Residential Plumbing</div>
+    </a>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-band">
+  <h2>Ready to Get <em>More Booked Jobs?</em></h2>
+  <p>Let's talk about what your business actually needs — no pressure, no long pitch.</p>
+  <a href="contact.html" class="btn-primary">Book a Call</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="index.html" class="nav-logo">ANAYA <span class="accent">VENTURES</span></a>
+      <p>Websites and marketing systems built for contractors and trades.</p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <h5>Site</h5>
+        <a href="index.html">Home</a>
+        <a href="our-work.html">Our Work</a>
+        <a href="pricing.html">Pricing</a>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <a href="trades-we-serve.html">Trades We Serve</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h5>Get In Touch</h5>
+        <a href="tel:5053121133">(505) 312-1133</a>
+        <a href="mailto:n8r8rs@yahoo.com">n8r8rs@yahoo.com</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Anaya Ventures</span>
+    <span>Albuquerque, NM</span>
+  </div>
+</footer>
+
+</body>
+</html>

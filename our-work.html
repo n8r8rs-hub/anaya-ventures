@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Work — Anaya Ventures</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Work+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:         #0b0f11;
+    --bg-alt:     #12181b;
+    --card:       #161d20;
+    --border:     rgba(255,255,255,0.10);
+    --text:       #eef3f2;
+    --text-soft:  #8fa0a2;
+    --accent:     #2dd4bf;
+    --accent-deep:#1f9e8f;
+    --accent-pale:rgba(45,212,191,0.14);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Work Sans', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .display { font-family: 'Sora', sans-serif; }
+  .mono { font-family: 'IBM Plex Mono', monospace; }
+  a { color: inherit; }
+
+  /* ─── NAV ─── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 18px 32px;
+    background: rgba(11,15,17,0.88);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: 'Sora', sans-serif; font-size: 1.15rem; font-weight: 700;
+    letter-spacing: 0.2px; text-decoration: none;
+    display: flex; align-items: center; gap: 8px;
+  }
+
+  .nav-logo .accent { color: var(--accent); }
+
+  .nav-links { display: flex; align-items: center; gap: 30px; list-style: none; }
+
+  .nav-links a {
+    font-size: 0.88rem; font-weight: 500;
+    text-decoration: none; color: var(--text-soft);
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover, .nav-links a.active { color: var(--text); }
+  .nav-links a.active { color: var(--accent); }
+
+  .nav-cta {
+    background: var(--accent); color: var(--bg);
+    font-weight: 700; font-size: 0.85rem; letter-spacing: 0.2px;
+    padding: 11px 22px; border-radius: 3px; text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .nav-cta:hover { background: var(--accent-deep); transform: translateY(-1px); }
+
+  /* ─── PAGE HEADER ─── */
+  .page-header { text-align: center; padding: 90px 32px 60px; }
+  .eyebrow {
+    display: block; text-align: center;
+    font-size: 0.75rem; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 14px;
+  }
+  .page-header h1 { font-size: clamp(2.2rem, 5vw, 3.2rem); font-weight: 700; letter-spacing: -0.5px; margin-bottom: 16px; }
+  .page-header p { color: var(--text-soft); max-width: 560px; margin: 0 auto; font-size: 1.02rem; font-weight: 300; line-height: 1.8; }
+
+  /* ─── SHARED ─── */
+  .section { padding: 40px 32px 100px; max-width: 1140px; margin: 0 auto; }
+
+  /* ─── WORK GRID ─── */
+  .work-list { display: flex; flex-direction: column; gap: 20px; }
+
+  .work-item {
+    display: grid; grid-template-columns: 1.1fr 1fr; gap: 0;
+    background: var(--card); border: 1px solid var(--border); border-radius: 8px;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+
+  .work-item:hover { border-color: var(--accent); }
+  .work-item:nth-child(even) { grid-template-columns: 1fr 1.1fr; }
+  .work-item:nth-child(even) .work-item-img { order: 2; }
+
+  .work-item-img { overflow: hidden; }
+  .work-item-img img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; min-height: 260px; }
+
+  .work-item-body { padding: 36px; display: flex; flex-direction: column; justify-content: center; }
+
+  .work-tag {
+    display: inline-block; align-self: flex-start;
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--accent); background: var(--accent-pale);
+    padding: 5px 12px; border-radius: 999px; margin-bottom: 16px;
+  }
+
+  .work-item-body h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 12px; }
+  .work-item-body p { font-size: 0.9rem; font-weight: 300; color: var(--text-soft); line-height: 1.8; }
+
+  /* ─── CTA ─── */
+  .cta-band { text-align: center; padding: 100px 32px; }
+  .cta-band h2 { font-size: clamp(2rem, 5vw, 2.7rem); font-weight: 700; margin-bottom: 14px; }
+  .cta-band h2 em { color: var(--accent); font-style: normal; }
+  .cta-band > p { color: var(--text-soft); font-weight: 300; margin-bottom: 40px; }
+
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--accent); color: var(--bg);
+    font-weight: 700; font-size: 0.95rem;
+    padding: 16px 30px; border-radius: 3px; text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-primary:hover { background: var(--accent-deep); transform: translateY(-2px); }
+
+  /* ─── FOOTER ─── */
+  footer { border-top: 1px solid var(--border); padding: 50px 32px 30px; }
+  .footer-inner { max-width: 1140px; margin: 0 auto; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 30px; }
+  .footer-brand .nav-logo { margin-bottom: 10px; }
+  .footer-brand p { font-size: 0.82rem; color: var(--text-soft); max-width: 260px; line-height: 1.7; }
+  .footer-links { display: flex; gap: 60px; flex-wrap: wrap; }
+  .footer-col h5 { font-size: 0.72rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-soft); margin-bottom: 14px; }
+  .footer-col a { display: block; font-size: 0.85rem; color: var(--text); text-decoration: none; margin-bottom: 10px; }
+  .footer-col a:hover { color: var(--accent); }
+  .footer-bottom {
+    max-width: 1140px; margin: 40px auto 0; padding-top: 24px; border-top: 1px solid var(--border);
+    font-size: 0.78rem; color: var(--text-soft);
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px;
+  }
+
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .work-item, .work-item:nth-child(even) { grid-template-columns: 1fr; }
+    .work-item:nth-child(even) .work-item-img { order: 0; }
+    .work-item-img img { min-height: 220px; }
+  }
+
+  @media (max-width: 640px) {
+    nav { padding: 14px 18px; }
+    .page-header { padding: 70px 20px 40px; }
+    .section { padding: 20px 20px 70px; }
+    .work-item-body { padding: 26px; }
+    .cta-band { padding: 70px 20px; }
+    .footer-inner { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">ANAYA <span class="accent">VENTURES</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="our-work.html" class="active">Our Work</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="trades-we-serve.html">Trades We Serve</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Book a Call</a>
+</nav>
+
+<div class="page-header">
+  <span class="eyebrow">Our Work</span>
+  <h1>Every Website Built From the Ground Up — No Templates</h1>
+  <p>We're a newer shop, so instead of a wall of stats, here's the actual work — real sites, built for real businesses.</p>
+</div>
+
+<section class="section">
+  <div class="work-list">
+    <div class="work-item">
+      <div class="work-item-img"><img src="images/carrara-stoneworks.png" alt="Carrara Stoneworks website"></div>
+      <div class="work-item-body">
+        <span class="work-tag">Home Services</span>
+        <h3>Carrara Stoneworks</h3>
+        <p>A custom marble and stone countertop fabrication site — built to showcase materials, walk customers through the process, and make requesting a quote effortless.</p>
+      </div>
+    </div>
+    <div class="work-item">
+      <div class="work-item-img"><img src="images/anaya-plumbers.png" alt="Anaya Plumbers website"></div>
+      <div class="work-item-body">
+        <span class="work-tag">Plumbing</span>
+        <h3>Anaya Plumbers</h3>
+        <p>A residential plumbing site built around trust and speed — upfront pricing, licensed &amp; insured messaging, and a click-to-call built into every section.</p>
+      </div>
+    </div>
+    <div class="work-item">
+      <div class="work-item-img"><img src="images/joels-photography.png" alt="Joel's Photography website"></div>
+      <div class="work-item-body">
+        <span class="work-tag">Creative</span>
+        <h3>Joel's Photography</h3>
+        <p>A dark, gallery-driven portfolio site with a self-service events system — new shoots go live without touching a line of code.</p>
+      </div>
+    </div>
+    <div class="work-item">
+      <div class="work-item-img"><img src="images/nmgrassvb.png" alt="NMGrassVB website"></div>
+      <div class="work-item-body">
+        <span class="work-tag">Sports &amp; Events</span>
+        <h3>NMGrassVB</h3>
+        <p>A tournament registration site with live event listings that automatically hide past dates — built to stay current with zero maintenance.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-band">
+  <h2>Want Something Built <em>For You?</em></h2>
+  <p>Tell us about your business — we'll show you what it could look like.</p>
+  <a href="contact.html" class="btn-primary">Book a Call</a>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="index.html" class="nav-logo">ANAYA <span class="accent">VENTURES</span></a>
+      <p>Websites and marketing systems built for contractors and trades.</p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <h5>Site</h5>
+        <a href="index.html">Home</a>
+        <a href="our-work.html">Our Work</a>
+        <a href="pricing.html">Pricing</a>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <a href="trades-we-serve.html">Trades We Serve</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h5>Get In Touch</h5>
+        <a href="tel:5053121133">(505) 312-1133</a>
+        <a href="mailto:n8r8rs@yahoo.com">n8r8rs@yahoo.com</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Anaya Ventures</span>
+    <span>Albuquerque, NM</span>
+  </div>
+</footer>
+
+</body>
+</html>

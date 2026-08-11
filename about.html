@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Anaya Ventures</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Work+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0b0f11; --bg-alt: #12181b; --card: #161d20; --border: rgba(255,255,255,0.10);
+    --text: #eef3f2; --text-soft: #8fa0a2;
+    --accent: #2dd4bf; --accent-deep: #1f9e8f; --accent-pale: rgba(45,212,191,0.14);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Work Sans', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+  h1, h2, h3, .display { font-family: 'Sora', sans-serif; }
+  .mono { font-family: 'IBM Plex Mono', monospace; }
+  a { color: inherit; }
+
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 18px 32px; background: rgba(11,15,17,0.88);
+    -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo { font-family: 'Sora', sans-serif; font-size: 1.15rem; font-weight: 700; letter-spacing: 0.2px; text-decoration: none; display: flex; align-items: center; gap: 8px; }
+  .nav-logo .accent { color: var(--accent); }
+  .nav-links { display: flex; align-items: center; gap: 30px; list-style: none; }
+  .nav-links a { font-size: 0.88rem; font-weight: 500; text-decoration: none; color: var(--text-soft); transition: color 0.2s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--text); }
+  .nav-links a.active { color: var(--accent); }
+  .nav-cta { background: var(--accent); color: var(--bg); font-weight: 700; font-size: 0.85rem; letter-spacing: 0.2px; padding: 11px 22px; border-radius: 3px; text-decoration: none; transition: background 0.2s, transform 0.15s; }
+  .nav-cta:hover { background: var(--accent-deep); transform: translateY(-1px); }
+
+  .page-header { text-align: center; padding: 90px 32px 60px; }
+  .eyebrow { display: block; text-align: center; font-size: 0.75rem; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
+  .page-header h1 { font-size: clamp(2.2rem, 5vw, 3.2rem); font-weight: 700; letter-spacing: -0.5px; margin-bottom: 16px; }
+  .page-header p { color: var(--text-soft); max-width: 560px; margin: 0 auto; font-size: 1.02rem; font-weight: 300; line-height: 1.8; }
+
+  .section { padding: 20px 32px 100px; max-width: 1140px; margin: 0 auto; }
+
+  /* ─── STORY ─── */
+  .story-wrap {
+    display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 60px; align-items: center;
+    margin-bottom: 100px;
+  }
+
+  .founder-card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+    padding: 40px 32px; text-align: center;
+  }
+
+  .founder-avatar {
+    width: 84px; height: 84px; border-radius: 50%;
+    background: var(--accent-pale); color: var(--accent);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Sora', sans-serif; font-size: 1.7rem; font-weight: 700;
+    margin: 0 auto 20px;
+  }
+
+  .founder-name { font-size: 1.1rem; font-weight: 700; margin-bottom: 4px; }
+  .founder-title { font-size: 0.82rem; color: var(--accent); letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 20px; }
+  .founder-card p { font-size: 0.85rem; color: var(--text-soft); font-weight: 300; line-height: 1.8; }
+
+  .story-copy h2 { font-size: 1.7rem; font-weight: 700; margin-bottom: 18px; letter-spacing: -0.3px; }
+  .story-copy p { font-size: 0.98rem; color: var(--text-soft); font-weight: 300; line-height: 1.9; margin-bottom: 16px; }
+  .story-copy p:last-child { margin-bottom: 0; }
+  .story-copy strong { color: var(--text); font-weight: 600; }
+
+  /* ─── VALUES ─── */
+  .values-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .value-card { text-align: center; padding: 10px; }
+  .value-num { font-family: 'IBM Plex Mono', monospace; font-size: 0.78rem; color: var(--accent); display: block; margin-bottom: 14px; }
+  .value-card h4 { font-size: 1rem; font-weight: 600; margin-bottom: 10px; }
+  .value-card p { font-size: 0.85rem; font-weight: 300; color: var(--text-soft); line-height: 1.7; }
+
+  .alt-band { background: var(--bg-alt); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+
+  .cta-band { text-align: center; padding: 100px 32px; }
+  .cta-band h2 { font-size: clamp(2rem, 5vw, 2.7rem); font-weight: 700; margin-bottom: 14px; }
+  .cta-band h2 em { color: var(--accent); font-style: normal; }
+  .cta-band > p { color: var(--text-soft); font-weight: 300; margin-bottom: 40px; }
+  .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: var(--bg); font-weight: 700; font-size: 0.95rem; padding: 16px 30px; border-radius: 3px; text-decoration: none; transition: background 0.2s, transform 0.15s; }
+  .btn-primary:hover { background: var(--accent-deep); transform: translateY(-2px); }
+
+  footer { border-top: 1px solid var(--border); padding: 50px 32px 30px; }
+  .footer-inner { max-width: 1140px; margin: 0 auto; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 30px; }
+  .footer-brand .nav-logo { margin-bottom: 10px; }
+  .footer-brand p { font-size: 0.82rem; color: var(--text-soft); max-width: 260px; line-height: 1.7; }
+  .footer-links { display: flex; gap: 60px; flex-wrap: wrap; }
+  .footer-col h5 { font-size: 0.72rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-soft); margin-bottom: 14px; }
+  .footer-col a { display: block; font-size: 0.85rem; color: var(--text); text-decoration: none; margin-bottom: 10px; }
+  .footer-col a:hover { color: var(--accent); }
+  .footer-bottom { max-width: 1140px; margin: 40px auto 0; padding-top: 24px; border-top: 1px solid var(--border); font-size: 0.78rem; color: var(--text-soft); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .story-wrap { grid-template-columns: 1fr; gap: 40px; }
+    .values-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 640px) {
+    nav { padding: 14px 18px; }
+    .page-header { padding: 70px 20px 40px; }
+    .section { padding: 10px 20px 70px; }
+    .story-wrap { margin-bottom: 60px; }
+    .values-grid { grid-template-columns: 1fr; }
+    .cta-band { padding: 70px 20px; }
+    .footer-inner { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">ANAYA <span class="accent">VENTURES</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="our-work.html">Our Work</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="trades-we-serve.html">Trades We Serve</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Book a Call</a>
+</nav>
+
+<div class="page-header">
+  <span class="eyebrow">About</span>
+  <h1>Our Business Only Works When Yours Does</h1>
+  <p>Anaya Ventures is a website design and marketing shop built specifically for contractors and trades.</p>
+</div>
+
+<section class="section">
+  <div class="story-wrap">
+    <div class="founder-card">
+      <div class="founder-avatar">NA</div>
+      <div class="founder-name">Nate Anaya</div>
+      <div class="founder-title">Founder</div>
+      <p>Hands-on with every project — you're talking directly to the person doing the work, not a call center.</p>
+    </div>
+    <div class="story-copy">
+      <h2>Built by someone who runs a business too.</h2>
+      <p>Anaya Ventures started with a simple problem: contractors and trades need to look as good online as the work they actually do — and most of what's out there is either generic templates or agencies that disappear after the invoice.</p>
+      <p>We're a newer shop, and we're upfront about that. What we bring instead is <strong>direct access</strong> — you're working with the person actually building your site and running your marketing, not getting passed around a support queue.</p>
+      <p>Every project gets built the same way: understand how your business actually gets customers, then build the website and systems around that — not the other way around.</p>
+    </div>
+  </div>
+</section>
+
+<div class="alt-band">
+  <section class="section" style="padding-top:80px; padding-bottom:80px;">
+    <span class="eyebrow">How We Work</span>
+    <h2 style="text-align:center; font-size:clamp(1.9rem,4vw,2.6rem); font-weight:700; margin-bottom:16px;">Our Values</h2>
+    <p style="text-align:center; color:var(--text-soft); max-width:520px; margin:0 auto 60px; font-size:1rem; font-weight:300; line-height:1.8;">The things we don't compromise on, project to project.</p>
+
+    <div class="values-grid">
+      <div class="value-card">
+        <span class="value-num mono">01</span>
+        <h4>Transparent</h4>
+        <p>Straightforward pricing and real answers — no jargon, no runaround.</p>
+      </div>
+      <div class="value-card">
+        <span class="value-num mono">02</span>
+        <h4>Integrity</h4>
+        <p>We do what we say we'll do, on the timeline we said we'd do it.</p>
+      </div>
+      <div class="value-card">
+        <span class="value-num mono">03</span>
+        <h4>Partnership</h4>
+        <p>You're not a client on a list. We're invested in your business growing.</p>
+      </div>
+      <div class="value-card">
+        <span class="value-num mono">04</span>
+        <h4>Adaptive</h4>
+        <p>Every trade is different — we build around how your business actually runs.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="cta-band">
+  <h2>Let's Talk About <em>Your Business.</em></h2>
+  <p>No pressure, no long pitch — just a conversation about what you actually need.</p>
+  <a href="contact.html" class="btn-primary">Book a Call</a>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="index.html" class="nav-logo">ANAYA <span class="accent">VENTURES</span></a>
+      <p>Websites and marketing systems built for contractors and trades.</p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <h5>Site</h5>
+        <a href="index.html">Home</a>
+        <a href="our-work.html">Our Work</a>
+        <a href="pricing.html">Pricing</a>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <a href="trades-we-serve.html">Trades We Serve</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h5>Get In Touch</h5>
+        <a href="tel:5053121133">(505) 312-1133</a>
+        <a href="mailto:n8r8rs@yahoo.com">n8r8rs@yahoo.com</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Anaya Ventures</span>
+    <span>Albuquerque, NM</span>
+  </div>
+</footer>
+
+</body>
+</html>

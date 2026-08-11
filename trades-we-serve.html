@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trades We Serve — Anaya Ventures</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Work+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0b0f11; --bg-alt: #12181b; --card: #161d20; --border: rgba(255,255,255,0.10);
+    --text: #eef3f2; --text-soft: #8fa0a2;
+    --accent: #2dd4bf; --accent-deep: #1f9e8f; --accent-pale: rgba(45,212,191,0.14);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Work Sans', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+  h1, h2, h3, .display { font-family: 'Sora', sans-serif; }
+  .mono { font-family: 'IBM Plex Mono', monospace; }
+  a { color: inherit; }
+
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 18px 32px; background: rgba(11,15,17,0.88);
+    -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo { font-family: 'Sora', sans-serif; font-size: 1.15rem; font-weight: 700; letter-spacing: 0.2px; text-decoration: none; display: flex; align-items: center; gap: 8px; }
+  .nav-logo .accent { color: var(--accent); }
+  .nav-links { display: flex; align-items: center; gap: 30px; list-style: none; }
+  .nav-links a { font-size: 0.88rem; font-weight: 500; text-decoration: none; color: var(--text-soft); transition: color 0.2s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--text); }
+  .nav-links a.active { color: var(--accent); }
+  .nav-cta { background: var(--accent); color: var(--bg); font-weight: 700; font-size: 0.85rem; letter-spacing: 0.2px; padding: 11px 22px; border-radius: 3px; text-decoration: none; transition: background 0.2s, transform 0.15s; }
+  .nav-cta:hover { background: var(--accent-deep); transform: translateY(-1px); }
+
+  .page-header { text-align: center; padding: 90px 32px 60px; }
+  .eyebrow { display: block; text-align: center; font-size: 0.75rem; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
+  .page-header h1 { font-size: clamp(2.2rem, 5vw, 3.2rem); font-weight: 700; letter-spacing: -0.5px; margin-bottom: 16px; }
+  .page-header p { color: var(--text-soft); max-width: 560px; margin: 0 auto; font-size: 1.02rem; font-weight: 300; line-height: 1.8; }
+
+  .section { padding: 20px 32px 100px; max-width: 1140px; margin: 0 auto; }
+
+  .trades-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+
+  .trade-card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 6px;
+    padding: 26px 24px; transition: border-color 0.2s, transform 0.2s;
+  }
+  .trade-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+  .trade-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 10px; }
+  .trade-card p { font-size: 0.85rem; font-weight: 300; color: var(--text-soft); line-height: 1.7; }
+
+  .trades-footnote {
+    text-align: center; margin-top: 50px; max-width: 560px; margin-left: auto; margin-right: auto;
+    color: var(--text-soft); font-size: 0.92rem; font-weight: 300; line-height: 1.8;
+  }
+
+  .cta-band { text-align: center; padding: 100px 32px; }
+  .cta-band h2 { font-size: clamp(2rem, 5vw, 2.7rem); font-weight: 700; margin-bottom: 14px; }
+  .cta-band h2 em { color: var(--accent); font-style: normal; }
+  .cta-band > p { color: var(--text-soft); font-weight: 300; margin-bottom: 40px; }
+  .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: var(--bg); font-weight: 700; font-size: 0.95rem; padding: 16px 30px; border-radius: 3px; text-decoration: none; transition: background 0.2s, transform 0.15s; }
+  .btn-primary:hover { background: var(--accent-deep); transform: translateY(-2px); }
+
+  footer { border-top: 1px solid var(--border); padding: 50px 32px 30px; }
+  .footer-inner { max-width: 1140px; margin: 0 auto; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 30px; }
+  .footer-brand .nav-logo { margin-bottom: 10px; }
+  .footer-brand p { font-size: 0.82rem; color: var(--text-soft); max-width: 260px; line-height: 1.7; }
+  .footer-links { display: flex; gap: 60px; flex-wrap: wrap; }
+  .footer-col h5 { font-size: 0.72rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-soft); margin-bottom: 14px; }
+  .footer-col a { display: block; font-size: 0.85rem; color: var(--text); text-decoration: none; margin-bottom: 10px; }
+  .footer-col a:hover { color: var(--accent); }
+  .footer-bottom { max-width: 1140px; margin: 40px auto 0; padding-top: 24px; border-top: 1px solid var(--border); font-size: 0.78rem; color: var(--text-soft); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .trades-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 640px) {
+    nav { padding: 14px 18px; }
+    .page-header { padding: 70px 20px 40px; }
+    .section { padding: 10px 20px 70px; }
+    .trades-grid { grid-template-columns: 1fr; }
+    .cta-band { padding: 70px 20px; }
+    .footer-inner { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">ANAYA <span class="accent">VENTURES</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="our-work.html">Our Work</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="trades-we-serve.html" class="active">Trades We Serve</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Book a Call</a>
+</nav>
+
+<div class="page-header">
+  <span class="eyebrow">Trades We Serve</span>
+  <h1>Built for Contractors &amp; Trades</h1>
+  <p>Every trade sells differently. Your site should be built around how your business actually works, not a one-size-fits-all template.</p>
+</div>
+
+<section class="section">
+  <div class="trades-grid">
+    <div class="trade-card"><h3>General Contractors</h3><p>Multi-trade projects need a site that shows range — from bids to finished builds.</p></div>
+    <div class="trade-card"><h3>Remodeling</h3><p>Before-and-after sells the work. We build your site to show it off.</p></div>
+    <div class="trade-card"><h3>Roofing</h3><p>Storm season shouldn't be the first time someone finds you.</p></div>
+    <div class="trade-card"><h3>Home Builders</h3><p>New builds and custom homes — a site that matches the scale of what you build.</p></div>
+    <div class="trade-card"><h3>Commercial</h3><p>Bigger projects, longer sales cycles — a site built to earn trust before the first call.</p></div>
+    <div class="trade-card"><h3>Plumbing</h3><p>Emergency calls need a fast, mobile-first site with click-to-call front and center.</p></div>
+    <div class="trade-card"><h3>Electrician</h3><p>Panel upgrades, rewires, service calls — organized so customers find exactly what they need.</p></div>
+    <div class="trade-card"><h3>HVAC</h3><p>Seasonal spikes mean your site needs to convert the moment someone's AC goes out.</p></div>
+    <div class="trade-card"><h3>Decks &amp; Patios</h3><p>Outdoor living sells on photos — a gallery-first site built to show your best work.</p></div>
+    <div class="trade-card"><h3>Handyman</h3><p>A simple, clean site that makes booking small jobs as easy as they should be.</p></div>
+    <div class="trade-card"><h3>Painters</h3><p>Color, finish, and craftsmanship — a site with the visual polish to match.</p></div>
+    <div class="trade-card"><h3>Landscapers</h3><p>Seasonal services and ongoing maintenance — a site built to capture both.</p></div>
+    <div class="trade-card"><h3>Pool Construction</h3><p>Big-ticket projects need a site that builds confidence before the first estimate.</p></div>
+    <div class="trade-card"><h3>Siding</h3><p>Durability sells itself — we just make sure people find you first.</p></div>
+    <div class="trade-card"><h3>Paving</h3><p>Driveways, lots, and roadwork — a site built to show scale and reliability.</p></div>
+    <div class="trade-card"><h3>Hardscaping</h3><p>Stonework and structure — a portfolio-driven site that shows the craft.</p></div>
+    <div class="trade-card"><h3>Windows &amp; Doors</h3><p>Energy efficiency and curb appeal — a site that sells both.</p></div>
+  </div>
+
+  <p class="trades-footnote">Don't see your trade listed? We work with all kinds of contractors and small businesses — if what you do runs on booked jobs, we can probably build for it. Ask us on a call.</p>
+</section>
+
+<div class="cta-band">
+  <h2>Let's Build Something <em>For Your Trade.</em></h2>
+  <p>Tell us what you do — we'll show you what it could look like.</p>
+  <a href="contact.html" class="btn-primary">Book a Call</a>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="index.html" class="nav-logo">ANAYA <span class="accent">VENTURES</span></a>
+      <p>Websites and marketing systems built for contractors and trades.</p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <h5>Site</h5>
+        <a href="index.html">Home</a>
+        <a href="our-work.html">Our Work</a>
+        <a href="pricing.html">Pricing</a>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <a href="trades-we-serve.html">Trades We Serve</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h5>Get In Touch</h5>
+        <a href="tel:5053121133">(505) 312-1133</a>
+        <a href="mailto:n8r8rs@yahoo.com">n8r8rs@yahoo.com</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Anaya Ventures</span>
+    <span>Albuquerque, NM</span>
+  </div>
+</footer>
+
+</body>
+</html>
