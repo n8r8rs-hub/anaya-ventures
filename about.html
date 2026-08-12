@@ -48,21 +48,23 @@
     margin-bottom: 100px;
   }
 
+  .founders-col { display: flex; flex-direction: column; gap: 20px; }
+
   .founder-card {
     background: var(--card); border: 1px solid var(--border); border-radius: 10px;
-    padding: 40px 32px; text-align: center;
+    padding: 32px 28px; text-align: center;
   }
 
   .founder-avatar {
-    width: 84px; height: 84px; border-radius: 50%;
+    width: 68px; height: 68px; border-radius: 50%;
     background: var(--accent-pale); color: var(--accent);
     display: flex; align-items: center; justify-content: center;
-    font-family: 'Sora', sans-serif; font-size: 1.7rem; font-weight: 700;
-    margin: 0 auto 20px;
+    font-family: 'Sora', sans-serif; font-size: 1.4rem; font-weight: 700;
+    margin: 0 auto 16px;
   }
 
-  .founder-name { font-size: 1.1rem; font-weight: 700; margin-bottom: 4px; }
-  .founder-title { font-size: 0.82rem; color: var(--accent); letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 20px; }
+  .founder-name { font-size: 1.05rem; font-weight: 700; margin-bottom: 4px; }
+  .founder-title { font-size: 0.8rem; color: var(--accent); letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 16px; }
   .founder-card p { font-size: 0.85rem; color: var(--text-soft); font-weight: 300; line-height: 1.8; }
 
   .story-copy h2 { font-size: 1.7rem; font-weight: 700; margin-bottom: 18px; letter-spacing: -0.3px; }
@@ -135,16 +137,24 @@
 
 <section class="section">
   <div class="story-wrap">
-    <div class="founder-card">
-      <div class="founder-avatar">NA</div>
-      <div class="founder-name">Nate Anaya</div>
-      <div class="founder-title">Founder</div>
-      <p>Hands-on with every project — you're talking directly to the person doing the work, not a call center.</p>
+    <div class="founders-col">
+      <div class="founder-card">
+        <div class="founder-avatar">NA</div>
+        <div class="founder-name">Nate Anaya</div>
+        <div class="founder-title">Co-Founder</div>
+        <p>Hands-on with every project — you're talking directly to the person doing the work, not a call center.</p>
+      </div>
+      <div class="founder-card">
+        <div class="founder-avatar">JA</div>
+        <div class="founder-name">Jayden Andazola</div>
+        <div class="founder-title">Co-Founder</div>
+        <p>Same business, same hands-on approach — another direct line instead of a support queue.</p>
+      </div>
     </div>
     <div class="story-copy">
-      <h2>Built by someone who runs a business too.</h2>
+      <h2>Built by people who run a business too.</h2>
       <p>Anaya Ventures started with a simple problem: contractors and trades need to look as good online as the work they actually do — and most of what's out there is either generic templates or agencies that disappear after the invoice.</p>
-      <p>We're a newer shop, and we're upfront about that. What we bring instead is <strong>direct access</strong> — you're working with the person actually building your site and running your marketing, not getting passed around a support queue.</p>
+      <p>We're a newer shop, and we're upfront about that. What we bring instead is <strong>direct access</strong> — you're working with the people actually building your site and running your marketing, not getting passed around a support queue.</p>
       <p>Every project gets built the same way: understand how your business actually gets customers, then build the website and systems around that — not the other way around.</p>
     </div>
   </div>
