@@ -35,6 +35,20 @@
   .nav-cta { background: var(--accent); color: var(--bg); font-weight: 700; font-size: 0.85rem; letter-spacing: 0.2px; padding: 11px 22px; border-radius: 3px; text-decoration: none; transition: background 0.2s, transform 0.15s; }
   .nav-cta:hover { background: var(--accent-deep); transform: translateY(-1px); }
 
+  .nav-links > li { position: relative; }
+  .dropdown-panel {
+    position: absolute; top: 100%; left: 50%;
+    background: var(--card); border: 1px solid var(--border); border-radius: 8px;
+    padding: 8px; min-width: 220px;
+    box-shadow: 0 16px 32px rgba(0,0,0,0.45);
+    opacity: 0; visibility: hidden;
+    transform: translate(-50%, 6px);
+    transition: opacity 0.15s, transform 0.15s, visibility 0.15s;
+  }
+  .nav-links > li:hover .dropdown-panel { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
+  .dropdown-panel a { display: block; padding: 10px 12px; border-radius: 5px; font-size: 0.85rem; }
+  .dropdown-panel a:hover { background: var(--accent-pale); color: var(--accent); }
+
   .page-header { text-align: center; padding: 90px 32px 60px; }
   .eyebrow { display: block; text-align: center; font-size: 0.75rem; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
   .page-header h1 { font-size: clamp(2.2rem, 5vw, 3.2rem); font-weight: 700; letter-spacing: -0.5px; margin-bottom: 16px; }
@@ -95,7 +109,15 @@
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="our-work.html">Our Work</a></li>
-    <li><a href="services.html">Services</a></li>
+    <li>
+      <a href="services.html">Services</a>
+      <div class="dropdown-panel">
+        <a href="websites.html">Websites</a>
+        <a href="advertisements.html">Advertisements</a>
+        <a href="auto-call-text-back.html">Auto Call/Text Back</a>
+        <a href="review-protection.html">Review Protection</a>
+      </div>
+    </li>
     <li><a href="pricing.html">Pricing</a></li>
     <li><a href="trades-we-serve.html" class="active">Trades We Serve</a></li>
     <li><a href="about.html">About</a></li>
