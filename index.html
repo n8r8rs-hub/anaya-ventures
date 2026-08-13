@@ -266,11 +266,12 @@
   .alt-band { background: var(--bg-alt); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
 
   /* ─── WHAT WE DO ─── */
-  .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
 
   .service-card {
     background: var(--card); border: 1px solid var(--border); border-radius: 6px;
     padding: 28px 24px;
+    text-decoration: none;
     transition: border-color 0.2s, transform 0.2s;
   }
 
@@ -284,7 +285,8 @@
   }
 
   .service-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 8px; }
-  .service-card p { font-size: 0.85rem; font-weight: 300; color: var(--text-soft); line-height: 1.7; }
+  .service-card p { font-size: 0.85rem; font-weight: 300; color: var(--text-soft); line-height: 1.7; margin-bottom: 14px; }
+  .service-card-link { color: var(--accent); font-size: 0.82rem; font-weight: 600; }
 
   /* ─── TRADES STRIP ─── */
   .trades-strip { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
@@ -507,26 +509,36 @@
   <p class="section-p">One partner for the website, the marketing, and the follow-up — instead of juggling three different vendors.</p>
 
   <div class="services-grid">
-    <div class="service-card">
+    <a href="websites.html" class="service-card">
       <div class="service-icon">◆</div>
       <h3>Website Design</h3>
       <p>A custom site built to convert visitors into calls and booked jobs, not just look good.</p>
-    </div>
-    <div class="service-card">
+      <span class="service-card-link">See How It Works →</span>
+    </a>
+    <a href="advertisements.html" class="service-card">
       <div class="service-icon">↗</div>
       <h3>Marketing Systems</h3>
       <p>Lead capture, follow-up, and review requests running automatically in the background.</p>
-    </div>
-    <div class="service-card">
+      <span class="service-card-link">See How It Works →</span>
+    </a>
+    <a href="review-protection.html" class="service-card">
       <div class="service-icon">★</div>
       <h3>Reputation Management</h3>
       <p>We help you collect and respond to reviews so new customers trust you before they even call.</p>
-    </div>
-    <div class="service-card">
+      <span class="service-card-link">See How It Works →</span>
+    </a>
+    <a href="auto-call-text-back.html" class="service-card">
       <div class="service-icon">⚡</div>
       <h3>Lead Follow-Up</h3>
       <p>Missed calls get an automatic text back, so a slow moment never costs you a job.</p>
-    </div>
+      <span class="service-card-link">See How It Works →</span>
+    </a>
+    <a href="command-center.html" class="service-card">
+      <div class="service-icon">⌘</div>
+      <h3>Command Center</h3>
+      <p>Facebook, Instagram, and text messages — all synced into one inbox, so nothing gets missed.</p>
+      <span class="service-card-link">See How It Works →</span>
+    </a>
   </div>
 </section>
 
