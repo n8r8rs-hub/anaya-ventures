@@ -129,6 +129,23 @@
 
   .alt-band { background: var(--bg-alt); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
 
+  .section-h { text-align: center; font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 700; letter-spacing: -0.5px; margin-bottom: 14px; }
+  .section-p { text-align: center; color: var(--text-soft); max-width: 520px; margin: 0 auto 56px; font-size: 0.98rem; font-weight: 300; line-height: 1.8; }
+
+  /* ─── FAQ ─── */
+  .faq-list { max-width: 700px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; }
+  .faq-item { background: var(--card); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; transition: border-color 0.2s; }
+  .faq-item.open { border-color: var(--accent); }
+  .faq-q {
+    width: 100%; background: none; border: none; color: var(--text);
+    font-family: 'Work Sans', sans-serif; font-size: 0.92rem; font-weight: 600; text-align: left;
+    padding: 18px 22px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  }
+  .faq-chevron { color: var(--accent); flex-shrink: 0; transition: transform 0.3s; }
+  .faq-item.open .faq-chevron { transform: rotate(180deg); }
+  .faq-a { display: none; padding: 0 22px 18px; color: var(--text-soft); font-size: 0.87rem; line-height: 1.75; border-top: 1px solid var(--border); padding-top: 14px; }
+  .faq-item.open .faq-a { display: block; }
+
   .cta-band { text-align: center; padding: 100px 32px; position: relative; overflow: hidden; }
   .cta-band h2 { font-size: clamp(2rem, 5vw, 2.7rem); font-weight: 700; margin-bottom: 14px; }
   .cta-band h2 em { color: var(--accent); font-style: normal; }
@@ -257,6 +274,45 @@
   </div>
 </section>
 
+<div class="alt-band">
+  <section class="section">
+    <span class="eyebrow">Common Questions</span>
+    <h2 class="section-h">FAQ</h2>
+    <p class="section-p">Everything you want to know before you book a call.</p>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <button type="button" class="faq-q">
+          Does this replace me answering the phone?
+          <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a">No — it's a backup for when you can't get to the phone, not a replacement for talking to customers yourself. Every conversation lands in one place, so you can jump in anytime.</div>
+      </div>
+      <div class="faq-item">
+        <button type="button" class="faq-q">
+          Will it sound like a bot?
+          <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a">The reply is written to feel like a real text from your business, not a canned automated response — most customers won't even realize it happened automatically.</div>
+      </div>
+      <div class="faq-item">
+        <button type="button" class="faq-q">
+          How fast does the text go out?
+          <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a">Within seconds of a missed call — before your customer even has a chance to call the next name on their list.</div>
+      </div>
+      <div class="faq-item">
+        <button type="button" class="faq-q">
+          Is this included in my plan?
+          <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a">Yes — automatic call/text back on missed calls is included starting with the Essentials plan, our most affordable tier.</div>
+      </div>
+    </div>
+  </section>
+</div>
+
 <div class="cta-band">
   <div class="section-texture"></div>
   <h2>Never Lose a Lead to a <em>Missed Call.</em></h2>
@@ -297,6 +353,17 @@
     <span>Albuquerque, NM</span>
   </div>
 </footer>
+
+<script>
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+</script>
 
 </body>
 </html>
