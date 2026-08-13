@@ -266,9 +266,10 @@
   .alt-band { background: var(--bg-alt); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
 
   /* ─── WHAT WE DO ─── */
-  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .services-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 18px; }
 
   .service-card {
+    flex: 0 1 calc(33.333% - 12px);
     background: var(--card); border: 1px solid var(--border); border-radius: 6px;
     padding: 28px 24px;
     text-decoration: none;
@@ -400,7 +401,7 @@
   /* ─── RESPONSIVE ─── */
   @media (max-width: 900px) {
     .nav-links { display: none; }
-    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .service-card { flex-basis: calc(50% - 9px); }
     .values-grid { grid-template-columns: repeat(2, 1fr); }
     .pricing-grid { grid-template-columns: 1fr; max-width: 380px; margin: 0 auto; }
     .work-grid { grid-template-columns: 1fr; }
@@ -410,7 +411,7 @@
     nav { padding: 14px 18px; }
     .hero { padding: 90px 20px 70px; }
     .section { padding: 64px 20px; }
-    .services-grid { grid-template-columns: 1fr; }
+    .service-card { flex-basis: 100%; }
     .values-grid { grid-template-columns: 1fr; }
     .cta-band { padding: 70px 20px; }
     .footer-inner { flex-direction: column; }
