@@ -100,7 +100,7 @@
   .section { padding: 20px 32px 100px; max-width: 1140px; margin: 0 auto; }
 
   /* ─── SERVICE TEASER CARDS ─── */
-  .service-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 
   .service-card {
     background: var(--card); border: 1px solid var(--border); border-radius: 8px;
@@ -152,6 +152,7 @@
 
   @media (max-width: 900px) {
     .nav-links { display: none; }
+    .service-grid { grid-template-columns: 1fr; }
   }
   @media (max-width: 640px) {
     nav { padding: 14px 18px; }
@@ -178,6 +179,7 @@
         <a href="advertisements.html">Advertisements</a>
         <a href="auto-call-text-back.html">Auto Call/Text Back</a>
         <a href="review-protection.html">Review Protection</a>
+        <a href="command-center.html">Command Center</a>
       </div>
     </li>
     <li><a href="pricing.html">Pricing</a></li>
@@ -200,6 +202,7 @@
   <a href="advertisements.html" class="sub-link">Advertisements</a>
   <a href="auto-call-text-back.html" class="sub-link">Auto Call/Text Back</a>
   <a href="review-protection.html" class="sub-link">Review Protection</a>
+  <a href="command-center.html" class="sub-link">Command Center</a>
   <a href="pricing.html">Pricing</a>
   <a href="trades-we-serve.html">Trades We Serve</a>
   <a href="about.html">About</a>
@@ -261,6 +264,13 @@
       <div class="service-card-icon">★</div>
       <h3>Review Protection</h3>
       <p>Great reviews go public. Everything else comes to you privately, so you can fix it before it's ever posted.</p>
+      <span class="service-card-link">See How It Works →</span>
+    </a>
+
+    <a href="command-center.html" class="service-card">
+      <div class="service-card-icon">⌘</div>
+      <h3>Command Center</h3>
+      <p>Facebook, Instagram, and text messages — all synced into one inbox, so you're never checking four apps to run your business.</p>
       <span class="service-card-link">See How It Works →</span>
     </a>
 

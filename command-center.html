@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Websites — Anaya Ventures</title>
+<title>Command Center — Anaya Ventures</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Work+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 <style>
@@ -104,6 +104,12 @@
   .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 20px; }
 
   .why-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 28px 26px; }
+  .why-card-icon {
+    width: 42px; height: 42px; border-radius: 9px;
+    background: var(--accent-pale); color: var(--accent);
+    display: flex; align-items: center; justify-content: center; font-size: 1.15rem;
+    margin-bottom: 16px;
+  }
   .why-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 10px; }
   .why-card p { font-size: 0.86rem; color: var(--text-soft); font-weight: 300; line-height: 1.75; }
 
@@ -136,23 +142,6 @@
   .faq-a { display: none; padding: 0 22px 18px; color: var(--text-soft); font-size: 0.87rem; line-height: 1.75; border-top: 1px solid var(--border); padding-top: 14px; }
   .faq-item.open .faq-a { display: block; }
 
-  /* ─── PORTFOLIO SHOWCASE ─── */
-  .work-list { display: flex; flex-direction: column; gap: 20px; margin-top: 60px; }
-
-  .work-item {
-    display: grid; grid-template-columns: 1.1fr 1fr;
-    background: var(--card); border: 1px solid var(--border); border-radius: 8px;
-    overflow: hidden; transition: border-color 0.2s;
-    text-decoration: none;
-  }
-  .work-item:hover { border-color: var(--accent); }
-  .work-item:nth-child(even) { grid-template-columns: 1fr 1.1fr; }
-  .work-item:nth-child(even) .work-item-img { order: 2; }
-  .work-item-img img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; min-height: 240px; }
-  .work-item-body { padding: 32px; display: flex; flex-direction: column; justify-content: center; }
-  .work-item-body h4 { font-size: 1.15rem; font-weight: 700; margin-bottom: 10px; }
-  .work-item-body p { font-size: 0.88rem; font-weight: 300; color: var(--text-soft); line-height: 1.8; }
-
   .alt-band { background: var(--bg-alt); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
 
   .cta-band { text-align: center; padding: 100px 32px; position: relative; overflow: hidden; }
@@ -176,14 +165,11 @@
     .nav-links { display: none; }
     .why-grid { grid-template-columns: 1fr; }
     .process-grid { grid-template-columns: 1fr; }
-    .work-item, .work-item:nth-child(even) { grid-template-columns: 1fr; }
-    .work-item:nth-child(even) .work-item-img { order: 0; }
   }
   @media (max-width: 640px) {
     nav { padding: 14px 18px; }
     .page-header { padding: 70px 20px 40px; }
     .section { padding: 10px 20px 70px; }
-    .work-item-body { padding: 24px; }
     .cta-band { padding: 70px 20px; }
     .footer-inner { flex-direction: column; }
   }
@@ -199,11 +185,11 @@
     <li>
       <a href="services.html">Services</a>
       <div class="dropdown-panel">
-        <a href="websites.html" class="active">Websites</a>
+        <a href="websites.html">Websites</a>
         <a href="advertisements.html">Advertisements</a>
         <a href="auto-call-text-back.html">Auto Call/Text Back</a>
         <a href="review-protection.html">Review Protection</a>
-        <a href="command-center.html">Command Center</a>
+        <a href="command-center.html" class="active">Command Center</a>
       </div>
     </li>
     <li><a href="pricing.html">Pricing</a></li>
@@ -255,94 +241,69 @@
 
 <div class="page-header">
   <div class="section-texture"></div>
-  <span class="eyebrow">Services · Websites</span>
-  <h1>A Website That Actually Looks Like Yours</h1>
-  <p>Not a template with your logo pasted on. Every site we build is designed from scratch — visually distinctive, fast, and built specifically around the business it's for.</p>
+  <span class="eyebrow">Services · Command Center</span>
+  <h1>Every Message. Every Channel. One Inbox.</h1>
+  <p>Facebook comments, Instagram DMs, texts, missed calls — all of it lands in one place, so nothing slips through the cracks between apps.</p>
 </div>
 
 <section class="section">
   <div class="why-grid">
     <div class="why-card">
-      <h3>Custom-Built, Not Templated</h3>
-      <p>No drag-and-drop theme with your name swapped in. Every layout, color choice, and section is designed specifically for your business.</p>
+      <div class="why-card-icon">▤</div>
+      <h3>Facebook &amp; Instagram Messages</h3>
+      <p>Comments and DMs from both platforms flow straight into your Command Center — no more switching apps to check them.</p>
     </div>
     <div class="why-card">
-      <h3>Built to Convert</h3>
-      <p>Looking good is the starting point, not the finish line. Every site is structured to turn a visitor into a call, a text, or a booked quote.</p>
+      <div class="why-card-icon">✉</div>
+      <h3>Text Messages</h3>
+      <p>Every SMS conversation with a customer lands in the same inbox as everything else, fully threaded and up to date.</p>
     </div>
     <div class="why-card">
-      <h3>Fast &amp; Mobile-First</h3>
-      <p>Most of your customers are finding you on their phone. These sites are built to load fast and work perfectly on a small screen first.</p>
+      <div class="why-card-icon">☎</div>
+      <h3>Missed Call Alerts</h3>
+      <p>Paired with Auto Call/Text Back, missed calls and their automatic replies show up right alongside your other conversations.</p>
     </div>
   </div>
 </section>
 
 <section class="section">
   <span class="eyebrow">How It Works</span>
-  <h2 class="section-h">From Kickoff to Live Site</h2>
-  <p class="section-p">No months of back-and-forth. A clear process, start to finish.</p>
+  <h2 class="section-h">One Inbox, Every Conversation</h2>
+  <p class="section-p">Stop checking four apps to find out who's trying to reach you.</p>
 
   <div class="process-grid">
     <div class="process-card">
       <div class="big-num">01</div>
-      <h3>Discovery Call</h3>
-      <p class="card-sub">We learn your business, your customers, and what's actually working (or not) right now.</p>
+      <h3>A Customer Reaches Out</h3>
+      <p class="card-sub">No matter which app they use, it starts the same way — someone's trying to reach your business.</p>
       <ul class="bullet-list">
-        <li>Review of your current online presence</li>
-        <li>What your customers search for, mapped out</li>
-        <li>Content &amp; photo needs identified</li>
-        <li>Timeline and scope locked in</li>
+        <li>Facebook comment or DM</li>
+        <li>Instagram DM</li>
+        <li>Text message</li>
+        <li>Missed call</li>
       </ul>
     </div>
     <div class="process-card">
       <div class="big-num">02</div>
-      <h3>Design &amp; Build</h3>
-      <p class="card-sub">Your site gets built from scratch around your business — not dropped into a template.</p>
+      <h3>It Lands in Your Command Center</h3>
+      <p class="card-sub">Every message gets pulled into one unified inbox automatically — nothing sits buried in a separate app.</p>
       <ul class="bullet-list">
-        <li>Custom layout &amp; color direction</li>
-        <li>Mobile-first build</li>
-        <li>Copy written around how you actually sell</li>
-        <li>Review round before anything goes live</li>
+        <li>Tagged by where it came from</li>
+        <li>Nothing lost between apps</li>
+        <li>Full conversation history in one thread</li>
+        <li>Updates in real time</li>
       </ul>
     </div>
     <div class="process-card">
       <div class="big-num">03</div>
-      <h3>Launch &amp; Handoff</h3>
-      <p class="card-sub">Site goes live, connected to your marketing systems, and you know exactly how it works.</p>
+      <h3>You Respond From One Place</h3>
+      <p class="card-sub">Reply, follow up, and keep track of every lead without switching between four different apps all day.</p>
       <ul class="bullet-list">
-        <li>Domain &amp; hosting connected</li>
-        <li>Forms &amp; call tracking tested live</li>
-        <li>Walkthrough of what you can edit</li>
-        <li>Ongoing support starts day one</li>
+        <li>Reply directly from the inbox</li>
+        <li>Follow up whenever you're free</li>
+        <li>See every lead in one list</li>
+        <li>Works from your phone or computer</li>
       </ul>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <span class="eyebrow">Our Work</span>
-  <h2 class="section-h">Recent Websites We've Built</h2>
-  <div class="work-list">
-    <a class="work-item" href="https://n8r8rs-hub.github.io/joels-photography/" target="_blank" rel="noopener">
-      <div class="work-item-img"><img src="images/joels-photography.png" alt="Joel's Photography website"></div>
-      <div class="work-item-body">
-        <h4>Joel's Photography</h4>
-        <p>A dark, gallery-driven portfolio site with a self-service events system — new shoots go live without touching a line of code.</p>
-      </div>
-    </a>
-    <div class="work-item">
-      <div class="work-item-img"><img src="images/carrara-stoneworks.png" alt="Carrara Stoneworks website"></div>
-      <div class="work-item-body">
-        <h4>Carrara Stoneworks</h4>
-        <p>A custom marble and stone countertop fabrication site — built to showcase materials, walk customers through the process, and make requesting a quote effortless.</p>
-      </div>
-    </div>
-    <div class="work-item">
-      <div class="work-item-img"><img src="images/anaya-plumbers.png" alt="Duke City Plumbing website"></div>
-      <div class="work-item-body">
-        <h4>Duke City Plumbing</h4>
-        <p>A residential plumbing site built around trust and speed — upfront pricing, licensed &amp; insured messaging, and click-to-call built into every section.</p>
-      </div>
     </div>
   </div>
 </section>
@@ -356,31 +317,31 @@
     <div class="faq-list">
       <div class="faq-item">
         <button type="button" class="faq-q">
-          How long does it take to build my site?
+          Do I still get notifications on my phone?
           <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
-        <div class="faq-a">Most sites go from kickoff call to launch in 2–4 weeks, depending on how quickly we get your content and photos back. We'll give you a clear timeline on the discovery call, before any work starts.</div>
+        <div class="faq-a">Yes — you can still get notified the moment a message comes in. You're just replying from one place instead of hunting across apps to find it.</div>
       </div>
       <div class="faq-item">
         <button type="button" class="faq-q">
-          Do I own my website?
+          Does this replace Facebook and Instagram?
           <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
-        <div class="faq-a">Every site is built specifically for your business — not a template you're renting. Hosting and your domain are included as part of your plan; the full details are in our Terms &amp; Conditions.</div>
+        <div class="faq-a">No — messages still come from those platforms. This just brings the replies into one inbox, so you're not checking four different apps throughout the day.</div>
       </div>
       <div class="faq-item">
         <button type="button" class="faq-q">
-          What if I want changes after it's live?
+          Is this included in my plan?
           <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
-        <div class="faq-a">Ongoing website maintenance is included in every plan — send us what you need changed and we'll handle it. No per-edit invoices or waiting on a developer queue.</div>
+        <div class="faq-a">Yes — the unified inbox is included starting with the Professional plan.</div>
       </div>
       <div class="faq-item">
         <button type="button" class="faq-q">
-          What if I want to cancel?
+          What if I miss a message anyway?
           <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
-        <div class="faq-a">Services run month-to-month — you can cancel anytime with 30 days' written notice. See our Terms &amp; Conditions for the full details.</div>
+        <div class="faq-a">Missed calls are covered separately by Auto Call/Text Back, which sends an automatic reply before the lead ever goes cold — and that conversation still lands in your Command Center too.</div>
       </div>
     </div>
   </section>
@@ -388,7 +349,7 @@
 
 <div class="cta-band">
   <div class="section-texture"></div>
-  <h2>Want a Site That Looks <em>Like You?</em></h2>
+  <h2>Run Your Business <em>From One Place.</em></h2>
   <p>Let's talk about what your business actually needs.</p>
   <a href="contact.html" class="btn-primary">Book a Call</a>
 </div>
