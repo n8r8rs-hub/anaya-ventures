@@ -49,6 +49,18 @@
   .dropdown-panel a { display: block; padding: 10px 12px; border-radius: 5px; font-size: 0.85rem; }
   .dropdown-panel a:hover { background: var(--accent-pale); color: var(--accent); }
 
+  .section-texture {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-image: radial-gradient(var(--text-soft) 1.5px, transparent 1.5px);
+    background-size: 28px 28px;
+    -webkit-mask-image: radial-gradient(ellipse 70% 75% at 50% 50%, black 0%, transparent 80%);
+    mask-image: radial-gradient(ellipse 70% 75% at 50% 50%, black 0%, transparent 80%);
+    opacity: 0.45;
+    pointer-events: none;
+  }
+
   .nav-toggle-btn {
     display: none; background: none; border: none; cursor: pointer;
     flex-direction: column; justify-content: center; gap: 5px;
@@ -212,7 +224,7 @@
   .faq-a { display: none; padding: 0 22px 18px; color: var(--text-soft); font-size: 0.87rem; line-height: 1.75; border-top: 1px solid var(--border); padding-top: 14px; }
   .faq-item.open .faq-a { display: block; }
 
-  .cta-band { text-align: center; padding: 100px 32px; }
+  .cta-band { text-align: center; padding: 100px 32px; position: relative; overflow: hidden; }
   .cta-band h2 { font-size: clamp(2rem, 5vw, 2.7rem); font-weight: 700; margin-bottom: 14px; }
   .cta-band h2 em { color: var(--accent); font-style: normal; }
   .cta-band > p { color: var(--text-soft); font-weight: 300; margin-bottom: 40px; }
@@ -304,6 +316,7 @@
 
 <!-- HERO -->
 <div class="hero">
+  <div class="section-texture"></div>
   <div class="hero-glow"></div>
   <div class="hero-content">
     <div class="hero-pill">Services · Paid Ads for Contractors &amp; Trades</div>
@@ -512,6 +525,7 @@
 </div>
 
 <div class="cta-band">
+  <div class="section-texture"></div>
   <h2>Ready to Get <em>Seen?</em></h2>
   <p>Let's talk about what your business actually needs.</p>
   <a href="contact.html" class="btn-primary">Book a Call</a>

@@ -78,6 +78,18 @@
   .dropdown-panel a { display: block; padding: 10px 12px; border-radius: 5px; font-size: 0.85rem; }
   .dropdown-panel a:hover { background: var(--accent-pale); color: var(--accent); }
 
+  .section-texture {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-image: radial-gradient(var(--text-soft) 1.5px, transparent 1.5px);
+    background-size: 28px 28px;
+    -webkit-mask-image: radial-gradient(ellipse 70% 75% at 50% 50%, black 0%, transparent 80%);
+    mask-image: radial-gradient(ellipse 70% 75% at 50% 50%, black 0%, transparent 80%);
+    opacity: 0.45;
+    pointer-events: none;
+  }
+
   .nav-toggle-btn {
     display: none; background: none; border: none; cursor: pointer;
     flex-direction: column; justify-content: center; gap: 5px;
@@ -109,7 +121,7 @@
     .nav-toggle-btn { display: flex; }
   }
 
-  .page-header { text-align: center; padding: 90px 32px 60px; }
+  .page-header { text-align: center; padding: 90px 32px 60px; position: relative; overflow: hidden; }
   .eyebrow {
     display: block; text-align: center;
     font-size: 0.75rem; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase;
@@ -170,7 +182,7 @@
     font-size: 0.9rem; font-weight: 300;
   }
 
-  .cta-band { text-align: center; padding: 100px 32px; }
+  .cta-band { text-align: center; padding: 100px 32px; position: relative; overflow: hidden; }
   .cta-band h2 { font-size: clamp(2rem, 5vw, 2.7rem); font-weight: 700; margin-bottom: 14px; }
   .cta-band h2 em { color: var(--accent); font-style: normal; }
   .cta-band > p { color: var(--text-soft); font-weight: 300; margin-bottom: 40px; }
@@ -275,6 +287,7 @@
 </script>
 
 <div class="page-header">
+  <div class="section-texture"></div>
   <span class="eyebrow">Pricing</span>
   <h1>Straightforward Monthly Pricing</h1>
   <p>No setup games, no long proposals. Pick the system that fits where your business is right now — upgrade anytime as you grow.</p>
@@ -345,6 +358,7 @@
 </section>
 
 <div class="cta-band">
+  <div class="section-texture"></div>
   <h2>Let's Find the Right <em>Fit for You.</em></h2>
   <p>15 minutes, no pressure — just a conversation about your business.</p>
   <a href="contact.html" class="btn-primary">Book a Call</a>
