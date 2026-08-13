@@ -92,6 +92,8 @@
   .roi-pill { background: var(--card); border: 1px solid var(--border); border-radius: 999px; padding: 6px 14px; font-size: 0.8rem; color: var(--text); white-space: nowrap; }
   .roi-pill strong { color: var(--accent); }
   .roi-divider { color: var(--text-soft); font-size: 0.75rem; }
+  .roi-note { font-size: 0.75rem; color: var(--text-soft); margin-top: 14px; }
+  .roi-note a { color: var(--accent); }
 
   /* ─── SHARED ─── */
   .section { padding: 80px 32px; max-width: 1140px; margin: 0 auto; }
@@ -99,6 +101,25 @@
   .section-h { text-align: center; font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 700; letter-spacing: -0.5px; margin-bottom: 14px; }
   .section-p { text-align: center; color: var(--text-soft); max-width: 520px; margin: 0 auto 56px; font-size: 0.98rem; font-weight: 300; line-height: 1.8; }
   .alt-band { background: var(--bg-alt); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+
+  /* ─── GUARANTEE ─── */
+  .guarantee-section { padding: 60px 32px 80px; max-width: 900px; margin: 0 auto; }
+  .guarantee-card {
+    background: linear-gradient(180deg, var(--accent-pale), var(--card) 55%);
+    border: 1px solid var(--accent); border-radius: 14px;
+    padding: 48px 44px; text-align: center;
+  }
+  .guarantee-badge {
+    display: inline-block; background: var(--accent); color: var(--bg);
+    font-size: 0.68rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 6px 16px; border-radius: 999px; margin-bottom: 18px;
+  }
+  .guarantee-card h2 { font-size: clamp(1.5rem, 3.5vw, 2rem); font-weight: 700; margin-bottom: 16px; letter-spacing: -0.3px; }
+  .guarantee-card p { font-size: 1rem; font-weight: 300; color: var(--text-soft); max-width: 60ch; margin: 0 auto 14px; line-height: 1.85; }
+  .guarantee-card p:last-of-type { margin-bottom: 0; }
+  .guarantee-card strong { color: var(--text); font-weight: 600; }
+  .guarantee-fine-print { font-size: 0.78rem; color: var(--text-soft); margin-top: 22px; }
+  .guarantee-fine-print a { color: var(--accent); }
 
   /* ─── PROCESS ─── */
   .process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
@@ -143,6 +164,7 @@
   .r-row .r-value { font-size: 0.85rem; font-weight: 600; }
   .r-row .r-value.highlight { color: var(--accent); font-size: 0.92rem; }
   .results-disclaimer { text-align: center; font-size: 0.75rem; color: var(--text-soft); max-width: 640px; margin: 0 auto; line-height: 1.7; }
+  .results-disclaimer a { color: var(--accent); }
 
   /* ─── FAQ ─── */
   .faq-list { max-width: 700px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; }
@@ -222,7 +244,7 @@
       <div class="stat-item"><span class="stat-value">15–20</span><span class="stat-label">Creatives Tested Per Campaign</span></div>
       <div class="stat-item"><span class="stat-value">5–20x</span><span class="stat-label">Expected Return on Ad Spend</span></div>
       <div class="stat-item"><span class="stat-value">72 hrs</span><span class="stat-label">Average Launch Window</span></div>
-      <div class="stat-item"><span class="stat-value">30-Day</span><span class="stat-label">Results Guarantee</span></div>
+      <div class="stat-item"><span class="stat-value">90-Day</span><span class="stat-label">Money-Back Guarantee</span></div>
     </div>
 
     <div class="roi-strip">
@@ -233,8 +255,20 @@
       <span class="roi-divider">·</span>
       <span class="roi-pill">$2K/mo → <strong>up to $40K back</strong></span>
     </div>
+    <p class="roi-note">Estimates based on industry benchmarks, not a promise of results for your business — actual outcomes vary. See our <a href="terms.html">Terms</a> for what's actually guaranteed.</p>
   </div>
 </div>
+
+<!-- GUARANTEE -->
+<section class="guarantee-section">
+  <div class="guarantee-card">
+    <span class="guarantee-badge">The No-Loss Guarantee</span>
+    <h2>Campaign Underperforms? We Refund Our Fee.</h2>
+    <p>Run your campaign with us for <strong>90 days</strong>. If it doesn't generate at least the minimum number of tracked leads for your spend level — leads we can show you directly from your own campaign data — we refund every dollar of our management fee for that period. No guessing, no "trust us," just the numbers from your own account.</p>
+    <p>Your ad spend goes straight to Meta or Google, so that part was never ours to give back — but the fee you pay <strong>us</strong> to manage it? If the campaign underperforms, you get it back.</p>
+    <p class="guarantee-fine-print">Guarantee is based on tracked leads, not revenue or sales — see our <a href="terms.html">Terms &amp; Conditions</a> for the exact thresholds and qualifying conditions. Ad spend paid to Meta/Google is never covered.</p>
+  </div>
+</section>
 
 <!-- PROCESS -->
 <section class="section">
@@ -355,7 +389,7 @@
     </div>
   </div>
 
-  <p class="results-disclaimer">* Estimates based on Meta Ads industry benchmarks for home services and trades in the US. Revenue ranges reflect average job values of $1,500–$5,000. Actual results depend on your market, offer, and follow-up speed — we'll give you a specific projection on the strategy call. "Monthly ad spend" is what goes to Meta/Google directly, separate from our management fee.</p>
+  <p class="results-disclaimer">* These are estimates only, based on Meta Ads industry benchmarks for home services and trades in the US — not a forecast or promise for your specific business. Revenue ranges reflect average job values of $1,500–$5,000. Actual results depend on your market, offer, and follow-up speed. "Monthly ad spend" is what goes to Meta/Google directly, separate from our management fee. These figures are separate from, and don't expand, our <a href="terms.html">Money-Back Guarantee</a>, which is based on tracked leads only.</p>
 </section>
 
 <!-- FAQ -->
@@ -430,6 +464,7 @@
         <a href="trades-we-serve.html">Trades We Serve</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
+        <a href="terms.html">Terms &amp; Conditions</a>
       </div>
       <div class="footer-col">
         <h5>Get In Touch</h5>
