@@ -105,7 +105,8 @@ nav {
   gap: 10px;
   background: var(--bg-alt);
   border-top: 1px solid var(--border);
-  padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
+  padding: 10px 90px 10px 14px;
+  padding-bottom: calc(10px + env(safe-area-inset-bottom));
 }
 .mobile-cta-btn {
   flex: 1;
