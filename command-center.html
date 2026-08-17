@@ -91,6 +91,8 @@
 
   @media (max-width: 900px) {
     .nav-toggle-btn { display: flex; }
+    nav .nav-logo-text { display: none; }
+    nav .nav-logo-img { height: 48px; display: block; }
   }
 
   .page-header { text-align: center; padding: 90px 32px 60px; position: relative; overflow: hidden; }
@@ -181,14 +183,15 @@
     .cta-band { padding: 70px 20px; }
     .footer-inner { flex-direction: column; }
   }
-  .nav-logo-img { height: 42px; width: auto; display: block; }
-  .footer-brand .nav-logo-img { height: 60px; }
+  .nav-logo-text { display: inline; }
+  .nav-logo-img { height: 42px; width: auto; display: none; }
+  .footer-brand .nav-logo-img { height: 60px; display: block; }
 </style>
 </head>
 <body>
 
 <nav>
-  <a href="index.html" class="nav-logo"><img src="images/logo.png" alt="Anaya Ventures" class="nav-logo-img"></a>
+  <a href="index.html" class="nav-logo"><span class="nav-logo-text">ANAYA <span class="accent">VENTURES</span></span><img src="images/logo.png" alt="Anaya Ventures" class="nav-logo-img"></a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="our-work.html">Our Work</a></li>
