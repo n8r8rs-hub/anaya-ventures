@@ -6,6 +6,7 @@
 <title>About — Anaya Ventures</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Work+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="favicon.png">
 <style>
   :root {
     --bg: #0b0f11; --bg-alt: #12181b; --card: #161d20; --border: rgba(255,255,255,0.10);
@@ -118,7 +119,9 @@
     display: flex; align-items: center; justify-content: center;
     font-family: 'Sora', sans-serif; font-size: 1.4rem; font-weight: 700;
     margin: 0 auto 16px;
+    overflow: hidden;
   }
+  .founder-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
   .founder-name { font-size: 1.05rem; font-weight: 700; margin-bottom: 4px; }
   .founder-title { font-size: 0.8rem; color: var(--accent); letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 16px; }
@@ -169,12 +172,14 @@
     .cta-band { padding: 70px 20px; }
     .footer-inner { flex-direction: column; }
   }
+  .nav-logo-img { height: 42px; width: auto; display: block; }
+  .footer-brand .nav-logo-img { height: 60px; }
 </style>
 </head>
 <body>
 
 <nav>
-  <a href="index.html" class="nav-logo">ANAYA <span class="accent">VENTURES</span></a>
+  <a href="index.html" class="nav-logo"><img src="images/logo.png" alt="Anaya Ventures" class="nav-logo-img"></a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="our-work.html">Our Work</a></li>
@@ -246,13 +251,13 @@
   <div class="story-wrap">
     <div class="founders-col">
       <div class="founder-card">
-        <div class="founder-avatar">NA</div>
+        <div class="founder-avatar"><img src="images/nate-headshot.png" alt="Nate Anaya"></div>
         <div class="founder-name">Nate Anaya</div>
         <div class="founder-title">Co-Founder</div>
         <p>Hands-on with every project — you're talking directly to the person doing the work, not a call center.</p>
       </div>
       <div class="founder-card">
-        <div class="founder-avatar">JA</div>
+        <div class="founder-avatar"><img src="images/jayden-headshot.png" alt="Jayden Andazola"></div>
         <div class="founder-name">Jayden Andazola</div>
         <div class="founder-title">Co-Founder</div>
         <p>Same business, same hands-on approach — another direct line instead of a support queue.</p>
@@ -308,7 +313,7 @@
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
-      <a href="index.html" class="nav-logo">ANAYA <span class="accent">VENTURES</span></a>
+      <a href="index.html" class="nav-logo"><img src="images/logo.png" alt="Anaya Ventures" class="nav-logo-img"></a>
       <p>Websites and marketing systems built for contractors and trades.</p>
     </div>
     <div class="footer-links">
