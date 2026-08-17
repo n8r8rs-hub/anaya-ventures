@@ -98,6 +98,30 @@ nav {
   nav .nav-logo-img { height: 48px; display: block; }
 }
 
+/* ─── STICKY MOBILE CALL/TEXT BAR ─── */
+.mobile-cta-bar {
+  display: none;
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 200;
+  gap: 10px;
+  background: var(--bg-alt);
+  border-top: 1px solid var(--border);
+  padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
+}
+.mobile-cta-btn {
+  flex: 1;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 13px; border-radius: 6px;
+  text-decoration: none; font-weight: 700; font-size: 0.92rem;
+}
+.mobile-cta-btn.call { background: var(--accent); color: var(--bg); }
+.mobile-cta-btn.text { background: transparent; color: var(--text); border: 1px solid var(--border); }
+.mobile-cta-btn svg { flex-shrink: 0; }
+
+@media (max-width: 900px) {
+  .mobile-cta-bar { display: flex; }
+  body { padding-bottom: 78px; }
+}
+
 /* ─── SHARED TYPOGRAPHY ─── */
 .eyebrow { display: block; text-align: center; font-size: 0.75rem; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
 .section-h { text-align: center; font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 700; letter-spacing: -0.5px; margin-bottom: 14px; }
