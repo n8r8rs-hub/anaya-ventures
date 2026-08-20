@@ -38,6 +38,27 @@
   .section { padding: 20px 32px 100px; max-width: 1140px; margin: 0 auto; }
 
   /* ─── PRICING ─── */
+  .billing-toggle {
+    display: flex; justify-content: center; align-items: center;
+    gap: 0; margin: 0 auto 40px; width: fit-content;
+    background: var(--card); border: 1px solid var(--border); border-radius: 999px; padding: 4px;
+  }
+  .billing-toggle button {
+    border: none; background: none; color: var(--text-soft);
+    font-family: 'Work Sans', sans-serif; font-size: 0.88rem; font-weight: 600;
+    padding: 10px 20px; border-radius: 999px; cursor: pointer;
+    display: flex; align-items: center; gap: 8px;
+    transition: background 0.2s, color 0.2s;
+  }
+  .billing-toggle button.active { background: var(--accent); color: var(--bg); }
+  .billing-save-badge {
+    font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 999px;
+    background: var(--accent-pale); color: var(--accent);
+  }
+  .billing-toggle button.active .billing-save-badge { background: rgba(0,0,0,0.15); color: var(--bg); }
+
+  .price-billing-note { font-size: 0.78rem; color: var(--accent); font-weight: 600; min-height: 1.2em; margin-bottom: 20px; }
+
   .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: start; }
 
   .price-card {
@@ -169,16 +190,22 @@
 <div class="page-header">
   <div class="section-texture"></div>
   <span class="eyebrow">Pricing</span>
-  <h1>Straightforward Monthly Pricing</h1>
+  <h1>Straightforward Pricing</h1>
   <p>No setup games, no long proposals. Pick the system that fits where your business is right now — upgrade anytime as you grow.</p>
 </div>
 
 <section class="section">
+  <div class="billing-toggle" role="group" aria-label="Billing period">
+    <button type="button" class="active" data-period="monthly">Monthly</button>
+    <button type="button" data-period="annual">Annual <span class="billing-save-badge">Save 20%</span></button>
+  </div>
+
   <div class="pricing-grid">
 
     <div class="price-card">
       <div class="price-name">Essentials</div>
-      <div class="price-amt">$197<span>/mo</span></div>
+      <div class="price-amt" data-monthly="197" data-annual="158"><span class="amt-value">$197</span><span>/mo</span></div>
+      <div class="price-billing-note" data-monthly-note="" data-annual-note="billed $1,891/yr · save $473"></div>
       <div class="price-tagline">A real website and the fundamentals, done right.</div>
       <ul class="price-features">
         <li>Custom website (3–5 pages)</li>
@@ -197,7 +224,8 @@
     <div class="price-card featured">
       <span class="price-badge">Most Popular</span>
       <div class="price-name">Professional</div>
-      <div class="price-amt">$297<span>/mo</span></div>
+      <div class="price-amt" data-monthly="297" data-annual="238"><span class="amt-value">$297</span><span>/mo</span></div>
+      <div class="price-billing-note" data-monthly-note="" data-annual-note="billed $2,851/yr · save $713"></div>
       <div class="price-tagline">Website, follow-up, and reputation — running on autopilot.</div>
       <ul class="price-features">
         <li class="included-from">Everything in Essentials</li>
@@ -218,7 +246,8 @@
 
     <div class="price-card">
       <div class="price-name">Premium</div>
-      <div class="price-amt">$747<span>/mo</span></div>
+      <div class="price-amt" data-monthly="747" data-annual="598"><span class="amt-value">$747</span><span>/mo</span></div>
+      <div class="price-billing-note" data-monthly-note="" data-annual-note="billed $7,171/yr · save $1,793"></div>
       <div class="price-tagline">$297 website system + $450 ad management — bundled, not stacked.</div>
       <ul class="price-features">
         <li class="included-from">Everything in Professional</li>
@@ -316,6 +345,32 @@
     <span>Albuquerque, NM</span>
   </div>
 </footer>
+
+<script>
+  (function () {
+    var toggleBtns = document.querySelectorAll('.billing-toggle button');
+    var priceAmts = document.querySelectorAll('.price-amt');
+
+    function setBilling(period) {
+      toggleBtns.forEach(function (b) { b.classList.toggle('active', b.dataset.period === period); });
+      priceAmts.forEach(function (amtEl) {
+        var valueEl = amtEl.querySelector('.amt-value');
+        var noteEl = amtEl.nextElementSibling;
+        if (period === 'annual') {
+          valueEl.textContent = '$' + amtEl.dataset.annual;
+          if (noteEl) noteEl.textContent = noteEl.dataset.annualNote;
+        } else {
+          valueEl.textContent = '$' + amtEl.dataset.monthly;
+          if (noteEl) noteEl.textContent = noteEl.dataset.monthlyNote || '';
+        }
+      });
+    }
+
+    toggleBtns.forEach(function (b) {
+      b.addEventListener('click', function () { setBilling(b.dataset.period); });
+    });
+  })();
+</script>
 
 <script>
   document.querySelectorAll('.faq-q').forEach(btn => {
